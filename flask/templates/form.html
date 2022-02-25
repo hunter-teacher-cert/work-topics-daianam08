@@ -1,0 +1,19 @@
+<h1>Sign in ASAP! We need to collect more faces 😋</h1>
+<img src="https://previews.123rf.com/images/annunna1/annunna10804/annunna1080400002/2790716-boy-making-a-silly-face.jpg" alt= "little kid with silly face" width="200px"/>
+{% if name != ""%}
+<h1> 'Sup {{name}}</h1>
+{% else %}
+<h2>Uh Oh </h2>
+{% endif %}
+
+<h2>{{error}}</h2>
+<form method="POST">
+What's your name? 
+<input name="username">
+<br>
+Secret code:
+<input name="password">
+<button>Let's get silly!</button>
+</form>
+
+<a href="/">Go Home</a>

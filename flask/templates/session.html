@@ -1,0 +1,19 @@
+<h1>Welcome back you loon! You've visited this site {{count}} times. Love to see you back 😜 </h1>
+
+<h2> Post something!</h2>
+<input type="text" id="wordsHere">
+<button id="clickme">Post!</button>
+<div id="post">
+  </div>
+
+<script>
+let words= document.querySelector("#wordsHere");
+let post= document.querySelector("#post");
+let click= document.querySelector("#clickme");
+
+click.addEventListener('click', e=>{
+  console.log("clicked")
+  // it shows clicked but I am having trouble displaying the stuff below!
+  words.innerHTML="You said:"+post.value;
+})
+</script>
