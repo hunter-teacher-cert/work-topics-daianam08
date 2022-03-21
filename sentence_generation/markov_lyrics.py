@@ -1,4 +1,4 @@
-#INCOMPLETE, playing around with lyrics input
+#COMPLETE
 
 # hat-tip to Liam Baum and Andrew Healey, a British software engineer, who have both implemented Markov Chains in ways that proved invaluable to our group!
 # You can find Liam's (super awesome) lyric generator here on his repo: https://github.com/hunter-teacher-cert/work_csci70900-mrbombmusic/tree/master/ds/markov
@@ -25,9 +25,12 @@ def input(text):
 
 def build_markov(corpus, state_size):
     corpus = corpus.split()#split the string input into a list of words
+    
     markov = {}#create an empty dictionary to hold the model - keys and values are words
     for i in range(state_size, len(corpus)):
         current_word = corpus[i]
+        if current_word=='chorus' or current_word=='Chorus':
+          current_word= corpus[i+1]
         previous_words = ' '.join(corpus[i-state_size:i])
         if previous_words in markov:
             markov[previous_words].append(current_word)
@@ -59,7 +62,7 @@ def generate_text(model, state_size, max_length):
         i += 1
         if i == max_length:
             break
-    return ' '.join(text)
+    return ' '.join(text)+'\n'
 
 # This is like "main" in java - here is where we run the program by calling the functions
 if __name__ == "__main__":
@@ -67,14 +70,19 @@ if __name__ == "__main__":
     # print(body)
     model = build_markov(body,2)
     # print(model)
-    print(generate_text(model,2,100))
+    print(generate_text(model,2,50))
     body = input('lady_gaga.txt')
     # print(body)
     model = build_markov(body,2)
     # print(model)
-    print(generate_text(model,2,100))
+    print(generate_text(model,2,50))
     body = input('dj_khaled.txt')
     # print(body)
     model = build_markov(body,2)
     # print(model)
-    print(generate_text(model,2,100))
+    print(generate_text(model,2,50))
+    body = input('bob-marley.txt')
+    # print(body)
+    model = build_markov(body,2)
+    # print(model)
+    print(generate_text(model,2,50))

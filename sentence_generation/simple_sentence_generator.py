@@ -1,4 +1,4 @@
-# COMPLETE, see readme for answers to questions for the assignment
+# COMPLETE, also see readme for answers to questions for the assignment
 import random
 
 articles = ["a", "the", "one", "some"]
