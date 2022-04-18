@@ -1,11 +1,13 @@
 from math import sin, cos
 import turtle
 
+# Each vertex is a point in space on the xyz plane. -1 connects to 1, meaning there are 3 possible integers you can work with (-1, 0, and 1)
 VERTEXES = [(-1, -1, -1), ( 1, -1, -1), ( 1,  1, -1), (-1,  1, -1),
             (-1, -1,  1), ( 1, -1,  1), ( 1,  1,  1), (-1,  1,  1)]
 
+# Below we have one triangle connected to one of the points
 TRIANGLES = [
-    (0, 1, 2), (2, 3, 0),
+    (0, 1, 2) , (2, 3, 0),
     (0, 4, 5), (5, 1, 0),
     (0, 4, 3), (4, 7, 3),
     (5, 4, 7), (7, 6, 5),
@@ -13,18 +15,19 @@ TRIANGLES = [
     (5, 1, 2), (2, 6, 5)
 ]
 
-FOV = 400
+# How much we see of our object, can be adjusted
+FOV = 200
 
 # Create turtle,
 pointer = turtle.Turtle()
 
-# Turn off move time, makes drawing instant,
+# Turn off live movement so it just shows the drawing
 turtle.tracer(0, 0)
 pointer.up()
 
-def rotate(x, y, r):
-  s, c = sin(r), cos(r)
-  return x * c - y * s, x * s + y * c
+# def rotate(x, y, r):
+#   s, c = sin(r), cos(r)
+#   return x * c - y * s, x * s + y * c
 
 counter = 0
 while True:
@@ -38,10 +41,10 @@ while True:
 			# Get the X, Y, Z coords out of the vertex iterator,
 			x, y, z = VERTEXES[vertex]
 
-			# Rotate,
-			x, z = rotate(x, z, counter)
-			y, z = rotate(y, z, counter)
-			x, y = rotate(x, y, counter)
+			# # Rotate,
+			# x, z = rotate(x, z, counter)
+			# y, z = rotate(y, z, counter)
+			# x, y = rotate(x, y, counter)
 
 			# Perspective formula,
 			z += 5
