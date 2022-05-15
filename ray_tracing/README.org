@@ -1,3 +1,6 @@
-* Last Name:
-* First Name:
+* Last Name: Munoz
+* First Name: Daiana
 
+COMPLETED 5/14/22
+
+Link to repl for HW: https://replit.com/@daianam08/raytracer-js#examples/hunter.js
